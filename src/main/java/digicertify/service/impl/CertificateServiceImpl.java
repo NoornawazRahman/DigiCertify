@@ -10,7 +10,9 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.signatures.*;
 import digicertify.entity.CertificateInfo;
+import digicertify.repository.CertificateRepository;
 import digicertify.service.CertificateService;
+import lombok.AllArgsConstructor;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,10 @@ import java.util.Properties;
 
 
 @Service
+@AllArgsConstructor
 public class CertificateServiceImpl implements CertificateService {
+    private CertificateRepository certificateRepository;
+
     @Override
     public void generateCertificate(CertificateInfo data, OutputStream out) {
         try {
@@ -141,7 +146,22 @@ public class CertificateServiceImpl implements CertificateService {
         }
     }
 
+    @Override
+    public void makeNewCertificate(CertificateInfo data) {
+//        Employee savedEmployee =  employeeRepository.save(employee);
+        CertificateInfo savedData = certificateRepository.save(data);
 
+    }
+
+    @Override
+    public void viewCertificateByStudentId(String studentId, OutputStream out) {
+//        Employee employee = employeeRepository.findById(employeeId)
+//                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with the given Id" + employeeId));
+
+        CertificateInfo data = certificateRepository.findById(studentId)
+                .orElseThrow(()->new RuntimeException("Invalid Id"));
+        generateCertificate(data, out);
+    }
 
 
 //    @Override

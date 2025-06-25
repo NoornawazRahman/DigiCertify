@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Certificate</title>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --primary-hover: #3a56d4;
+            --background-color: #f8faff;
+            --card-color: #ffffff;
+            --text-color: #2d3748;
+            --light-text: #718096;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .download-container {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #6b46ff);
+            border-radius: 2px;
+        }
+
+        .download-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 15px;
+        }
+
+        input {
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background-color: #fafbff;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.15);
+        }
+
+        input::placeholder {
+            color: var(--light-text);
+            opacity: 0.7;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 107, 255, 0.25);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .download-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .download-container {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="download-container">
+    <h1>Download Certificate</h1>
+    <form class="download-form" action="/certificate/download" method="post">
+        <div class="form-group">
+            <label for="certificateId">Certificate ID</label>
+            <input type="text" name="studentId" id="certificateId"
+                   placeholder="Enter your Enrollment Number" required>
+        </div>
+        <button type="submit" class="download-btn">
+            <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download
+        </button>
+    </form>
+</div>
+</body>
+</html>
