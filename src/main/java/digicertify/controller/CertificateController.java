@@ -1,6 +1,6 @@
 package digicertify.controller;
 
-import digicertify.entity.Certificate;
+import digicertify.entity.CertificateInfo;
 import digicertify.service.CertificateService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -32,7 +31,7 @@ public class CertificateController {
     }
 
     @PostMapping("/generate")
-    public void generateCertificate(@ModelAttribute Certificate data,  HttpServletResponse response) throws IOException {
+    public void generateCertificate(@ModelAttribute CertificateInfo data, HttpServletResponse response) throws IOException {
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "inline; filename=certificate.pdf");
 

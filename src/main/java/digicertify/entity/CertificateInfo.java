@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Certificate {
+public class CertificateInfo {
 
     private String studentName;
     private String studentId;
