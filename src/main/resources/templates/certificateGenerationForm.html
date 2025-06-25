@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Certificate Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            form {
+                padding: 20px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="/certificate/generate" method="post">
+    <h1>Digital Certificate Generator</h1>
+
+    <div class="form-row">
+        <div>
+            <label for="studentName">Student Name</label>
+            <input type="text" name="studentName" id="studentName" placeholder="Enter student name" required>
+        </div>
+        <div>
+            <label for="studentId">Student ID</label>
+            <input type="text" name="studentId" id="studentId" placeholder="Enter student ID" required>
+        </div>
+    </div>
+
+    <div>
+        <label for="topic">Topic</label>
+        <input type="text" name="topic" id="topic" placeholder="Enter project/topic name" required>
+    </div>
+
+    <div>
+        <label for="guideName">Guide Name</label>
+        <input type="text" name="guideName" id="guideName" placeholder="Enter guide's name" required>
+    </div>
+
+    <div class="form-row">
+        <div>
+            <label for="startDate">Start Date</label>
+            <input type="date" name="startDate" id="startDate" required>
+        </div>
+        <div>
+            <label for="endDate">End Date</label>
+            <input type="date" name="endDate" id="endDate" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div>
+            <label for="supervisorName">Supervisor Name</label>
+            <input type="text" name="supervisorName" id="supervisorName" placeholder="Enter supervisor's name" required>
+        </div>
+        <div>
+            <label for="supervisorDesignation">Supervisor Designation</label>
+            <input type="text" name="supervisorDesignation" id="supervisorDesignation" placeholder="Enter designation" required>
+        </div>
+    </div>
+
+    <button type="submit">Generate Certificate</button>
+</form>
+</body>
+</html>
