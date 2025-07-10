@@ -15,4 +15,4 @@ RUN ./mvnw dependency:go-offline -B
 RUN ./mvnw clean package -DskipTests
 
 # Run with production-optimized JVM settings
-CMD ["java", "-jar", "target/*.jar"]  # Replace with your actual JAR name pattern
+CMD ["java", "-jar", "target/DigiCertify-0.0.1-SNAPSHOT.jar"]  # Replace with your actual JAR name pattern
