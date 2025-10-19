@@ -1,4 +1,4 @@
-# DigiCertify - Document Authentication With Digital Signature
+# DigiCertify - Web Based Document Authentication With Digital Signature
 
 **DigiCertify** is a web-based application designed to generate and digitally sign PDF certificates using user-specific data. It enables secure, tamper-proof certificate generation by embedding a digital signature, ensuring the authenticity of each certificate issued.
 
@@ -62,3 +62,4 @@ Major libraries and tools used:
 ```bash
 git clone https://github.com/NoornawazRahman/DigiCertify.git
 cd DigiCertify
+
